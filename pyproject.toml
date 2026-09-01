@@ -1,0 +1,20 @@
+[project]
+name = "inflow-scrapli-plugin"
+version = "0.1.0"
+description = "Inflowenger plugin node that runs CLI commands and config on network devices via scrapli."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Mehdi Shokohifar", email = "mehdi.shokohifar@gmail.com" }]
+dependencies = [
+    "inflowenger-plugin-sdk>=0.1.2",
+    "nkeys>=0.2.0",  # nats-py needs it for JWT/.creds (INFRA_CRED) auth
+    "scrapli[asyncssh]>=2024.1.30",
+]
+
+[project.optional-dependencies]
+parse = ["ntc-templates>=4.0.0"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
